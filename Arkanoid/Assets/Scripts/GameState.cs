@@ -14,6 +14,7 @@ public class GameState : MonoBehaviour
     private TextMeshProUGUI scoreText; 
     
     private int _currentScore;
+
     
     private void Awake()
     {
@@ -44,5 +45,21 @@ public class GameState : MonoBehaviour
     {
         gameObject.SetActive(false);
         Destroy(gameObject);
+    }
+
+    public void IncreaseSpeed()
+    {
+        if (gameSpeed < 5f)
+        {
+            gameSpeed += 0.2f;
+        }
+    }
+    
+    public void DecreaseSpeed()
+    {
+        if (gameSpeed > 0.5f)
+        {
+            gameSpeed -= 0.2f;
+        }
     }
 }

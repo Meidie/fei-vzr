@@ -3,8 +3,9 @@ using UnityEngine;
 public class Level : MonoBehaviour
 {
     private int _breakableBlocks;
+    private int _balls = 1;
     private SceneLoader _sceneLoader;
-    
+
     private void Start()
     {
         _sceneLoader = FindObjectOfType<SceneLoader>();
@@ -20,7 +21,17 @@ public class Level : MonoBehaviour
         _breakableBlocks--;
         if (_breakableBlocks == 0)
         {
-            _sceneLoader.LoadNextScene();
+            StartCoroutine(_sceneLoader.LoadNextScene(0.1f));
         }
+    }
+
+    public void AddBall()
+    {
+        _balls++;
+    }
+
+    public int DestroyBall()
+    {
+        return --_balls;
     }
 }

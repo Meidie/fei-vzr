@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Breakable
   - Unbreakable
+  - GameMusic
+  - Feature
+  - Ball
+  - Platform
+  - Score
   layers:
   - Default
   - TransparentFX

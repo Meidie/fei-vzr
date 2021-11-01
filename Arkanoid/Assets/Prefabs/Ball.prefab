@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -445841731909138701}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: Untagged
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,9 +136,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c0a2e00fc63944dbf4d21d854f0f86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paddle: {fileID: 0}
+  platform: {fileID: 0}
   xVelocityPush: 2
-  yVelocityPush: 15
+  yVelocityPush: 10
   audioClips:
   - {fileID: 8300000, guid: ec845182a6275b0488d627717827aeb5, type: 3}
   - {fileID: 8300000, guid: 6881b3d3f602fec469707d00dd55be46, type: 3}

@@ -125,5 +125,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroySound: {fileID: 8300000, guid: 78c7e2fbab35c1841b246d1335a42782, type: 3}
   contactParticles: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 3}
-  maxNumberOfHits: 1
   hitSprites: []
+  powerUps:
+  - {fileID: 1686261357346652152, guid: c643c4942f569894f8deedf747307d51, type: 3}
+  - {fileID: 1686261357346652152, guid: 627317b7a91643d4facba3fb97c44bc0, type: 3}
+  - {fileID: 1686261357346652152, guid: 25a4df6bebe992b468f745a72dea643f, type: 3}
+  - {fileID: 1686261357346652152, guid: fb1ba3831f049a14488794850c93ec27, type: 3}
+  - {fileID: 1686261357346652152, guid: 41ecf730057044c429e5c841fa63b7ca, type: 3}
+  - {fileID: 1686261357346652152, guid: 557eb20cbce31b348a57e966d0698583, type: 3}
+  - {fileID: 1686261357346652152, guid: 53626dbb0b9aa714bb31c099b36a7f43, type: 3}

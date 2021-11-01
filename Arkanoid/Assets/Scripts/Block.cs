@@ -1,3 +1,4 @@
+using PowerUps;
 using UnityEngine;
 
 public class Block : MonoBehaviour
@@ -9,7 +10,8 @@ public class Block : MonoBehaviour
     private Level _level;
     private GameState _gameState;
     private SpriteRenderer _spriteRenderer;
-    
+    private PowerUpsManager _powerUpsManager;
+
     private int _maxNumberOfHits;
     private int _numberOfHitsReceived;
 
@@ -18,6 +20,7 @@ public class Block : MonoBehaviour
         _maxNumberOfHits = hitSprites.Length + 1;
         _gameState = FindObjectOfType<GameState>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _powerUpsManager = FindObjectOfType<PowerUpsManager>();
         CountBreakableBlocks();
     }
 
@@ -34,6 +37,7 @@ public class Block : MonoBehaviour
         _numberOfHitsReceived++;
         if (_numberOfHitsReceived >= _maxNumberOfHits)
         {
+            SpawnPowerUp();
             DestroyBlock();
         }
         else
@@ -76,5 +80,10 @@ public class Block : MonoBehaviour
     private void SpawnParticleEffect()
     {
         Destroy(Instantiate(contactParticles, transform.position, transform.rotation), 2f);
+    }
+
+    private void SpawnPowerUp()
+    {
+        _powerUpsManager.SpawnPowerUp(gameObject.transform.position);
     }
 }

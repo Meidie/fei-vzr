@@ -120,6 +120,10 @@ PrefabInstance:
       propertyPath: paddle
       value: 
       objectReference: {fileID: 2528473788233319877}
+    - target: {fileID: 1686261357346652157, guid: 811b72af4a62fb146a78ad1888b48b41, type: 3}
+      propertyPath: platform
+      value: 
+      objectReference: {fileID: 2528473788233319877}
     - target: {fileID: 1686261357346652158, guid: 811b72af4a62fb146a78ad1888b48b41, type: 3}
       propertyPath: m_RootOrder
       value: 0

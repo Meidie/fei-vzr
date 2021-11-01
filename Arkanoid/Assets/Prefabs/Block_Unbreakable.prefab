@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8650878207540427413}
   - component: {fileID: 8650878207540427414}
   - component: {fileID: 8650878207540427412}
-  - component: {fileID: 8650878207540427411}
   m_Layer: 0
   m_Name: Block_Unbreakable
   m_TagString: Unbreakable
@@ -111,17 +110,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &8650878207540427411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8650878207540427415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0db1b9dc70761b4e94f63a589713649, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destroySound: {fileID: 8300000, guid: 78c7e2fbab35c1841b246d1335a42782, type: 3}
-  contactParticles: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 3}
