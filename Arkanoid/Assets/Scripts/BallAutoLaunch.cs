@@ -29,7 +29,7 @@ public class BallAutoLaunch : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _audioSource = GetComponent<AudioSource>();
         CountBalls();
-        PositionBallOnPaddle();
+        PositionBallOnPlatform();
         LaunchBall();
     }
 
@@ -39,7 +39,7 @@ public class BallAutoLaunch : MonoBehaviour
         _rigidbody2D.velocity = new Vector2(xVelocityPush, yVelocityPush);
     }
 
-    private void PositionBallOnPaddle()
+    private void PositionBallOnPlatform()
     {
         transform.position = new Vector2(platform.transform.position.x, platform.transform.position.y);
     }

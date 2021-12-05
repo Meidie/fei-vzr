@@ -3415,9 +3415,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -7.8207874, y: -0.49999905}
+    - - {x: -7.449565, y: -0.49944878}
       - {x: -8.000135, y: -0.50008035}
-      - {x: -8.000101, y: -0.6792286}
+      - {x: -8.000101, y: -1.05}
 --- !u!60 &3976291895110190386
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3443,9 +3443,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 7.820787, y: -0.49999905}
+    - - {x: 7.449565, y: -0.4997883}
       - {x: 8.000135, y: -0.50008035}
-      - {x: 8.000101, y: -0.6792286}
+      - {x: 8.000101, y: -1.05}
 --- !u!61 &3976291895110190390
 BoxCollider2D:
   m_ObjectHideFlags: 0
