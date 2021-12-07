@@ -7,34 +7,24 @@ using UnityEngine.XR.ARSubsystems;
 [RequireComponent(typeof(ARRaycastManager))]
 public class PlaceObjectsOnPlane : MonoBehaviour
 {
-    [SerializeField] [Tooltip("Instantiates this prefab on a plane at the touch location.")]
-    private GameObject placedPrefab;
+    private static readonly List<ARRaycastHit> Hits = new List<ARRaycastHit>();
+    public static event Action ONPlacedObject;
 
-    public GameObject PlacedPrefab
+    [SerializeField] private GameObject placementPrefab;
+
+    public GameObject PlacementPrefab
     {
-        get => placedPrefab;
-        set => placedPrefab = value;
+        get => placementPrefab;
+        set => placementPrefab = value;
     }
 
     public GameObject spawnedObject { get; private set; }
 
-    public static event Action ONPlacedObject;
+    [SerializeField] private Camera arCamera;
 
     private ARRaycastManager _raycastManager;
-
-    private static readonly List<ARRaycastHit> Hits = new List<ARRaycastHit>();
-
-    [SerializeField] private int maxNumberOfObjectsToPlace = 1;
-
-    private int _numberOfPlacedObjects;
-
-    [SerializeField] private bool canReposition = true;
-
-    public bool CanReposition
-    {
-        get => canReposition;
-        set => canReposition = value;
-    }
+    private Vector2 _touchPosition;
+    private bool _onTouchHold;
 
     private void Awake()
     {
@@ -46,28 +36,46 @@ public class PlaceObjectsOnPlane : MonoBehaviour
         if (Input.touchCount > 0)
         {
             var touch = Input.GetTouch(0);
-
-            if (touch.phase == TouchPhase.Began)
+            _touchPosition = touch.position;
+ 
+            switch (touch.phase)
             {
-                if (_raycastManager.Raycast(touch.position, Hits, TrackableType.PlaneWithinPolygon))
+                case TouchPhase.Began:
                 {
-                    var hitPose = Hits[0].pose;
+                    var ray = arCamera.ScreenPointToRay(touch.position);
 
-                    if (_numberOfPlacedObjects < maxNumberOfObjectsToPlace)
+                    if (Physics.Raycast(ray, out var hitObject))
                     {
-                        spawnedObject = Instantiate(placedPrefab, hitPose.position, hitPose.rotation);
-
-                        _numberOfPlacedObjects++;
-                    }
-                    else
-                    {
-                        if (canReposition)
+                        if (hitObject.transform.gameObject.CompareTag("car"))
                         {
-                            spawnedObject.transform.SetPositionAndRotation(hitPose.position, hitPose.rotation);
+                            _onTouchHold = true;
                         }
                     }
 
+                    break;
+                }
+                case TouchPhase.Ended:
+                    _onTouchHold = false;
+                    break;
+            }
+            
+            if (_raycastManager.Raycast(_touchPosition, Hits, TrackableType.PlaneWithinPolygon))
+            {
+                var hitPose = Hits[0].pose;
+
+                if (spawnedObject == null)
+                {
+                    Debug.Log("SPAWN OBJECT");
+                    spawnedObject = Instantiate(placementPrefab, hitPose.position, hitPose.rotation);
                     ONPlacedObject?.Invoke();
+                }
+                else
+                {
+                    if (_onTouchHold)
+                    {
+                        Debug.Log("REPOSITION OBJECT");
+                        spawnedObject.transform.SetPositionAndRotation(hitPose.position, hitPose.rotation);
+                    }
                 }
             }
         }

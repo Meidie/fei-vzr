@@ -728,7 +728,7 @@ GameObject:
   - component: {fileID: 4672329885687969272}
   m_Layer: 0
   m_Name: Body_col
-  m_TagString: Untagged
+  m_TagString: car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -809,7 +809,7 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
-  m_CookingOptions: 30
+  m_CookingOptions: 2147483647
   m_Mesh: {fileID: 4300106, guid: 34e78d0ff3385a14583a1b8cb2046b1e, type: 3}
 --- !u!1 &2550734934513267865
 GameObject:
@@ -1022,9 +1022,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8573390185015838248}
+  - component: {fileID: 5478583506222544811}
   m_Layer: 0
   m_Name: Toyota AE86
-  m_TagString: Untagged
+  m_TagString: car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1044,6 +1045,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5478583506222544811
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3337623592417892960}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.846384, y: 0.21906492, z: 0.365878}
+  m_Center: {x: 0.0029857457, y: 0.14189674, z: 0.0013465583}
 --- !u!1 &3632124966003622733
 GameObject:
   m_ObjectHideFlags: 0
@@ -3046,7 +3060,7 @@ GameObject:
   - component: {fileID: 8571076312033921999}
   m_Layer: 0
   m_Name: SportCar13_Colliders
-  m_TagString: Untagged
+  m_TagString: car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
