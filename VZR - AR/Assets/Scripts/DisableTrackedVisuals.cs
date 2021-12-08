@@ -47,7 +47,7 @@ public class DisableTrackedVisuals : MonoBehaviour
         PlaceObjectsOnPlane.ONPlacedObject -= ONPlacedObject;
     }
 
-    private void ONPlacedObject()
+    private void ONPlacedObject(GameObject go)
     {
         if (disableFeaturePoints)
         {

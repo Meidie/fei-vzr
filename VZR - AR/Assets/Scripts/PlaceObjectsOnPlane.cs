@@ -8,7 +8,7 @@ using UnityEngine.XR.ARSubsystems;
 public class PlaceObjectsOnPlane : MonoBehaviour
 {
     private static readonly List<ARRaycastHit> Hits = new List<ARRaycastHit>();
-    public static event Action ONPlacedObject;
+    public static event Action<GameObject> ONPlacedObject;
 
     [SerializeField] private GameObject placementPrefab;
 
@@ -65,15 +65,13 @@ public class PlaceObjectsOnPlane : MonoBehaviour
 
                 if (spawnedObject == null)
                 {
-                    Debug.Log("SPAWN OBJECT");
                     spawnedObject = Instantiate(placementPrefab, hitPose.position, hitPose.rotation);
-                    ONPlacedObject?.Invoke();
+                    ONPlacedObject?.Invoke(spawnedObject);
                 }
                 else
                 {
                     if (_onTouchHold)
                     {
-                        Debug.Log("REPOSITION OBJECT");
                         spawnedObject.transform.SetPositionAndRotation(hitPose.position, hitPose.rotation);
                     }
                 }

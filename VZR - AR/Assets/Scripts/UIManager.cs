@@ -117,7 +117,7 @@ public class UIManager : MonoBehaviour
     private void OnEnable()
     {
         ARUXAnimationManager.ONFadeOffComplete += FadeComplete;
-        PlaceObjectsOnPlane.ONPlacedObject += () => _placedObject = true;
+        PlaceObjectsOnPlane.ONPlacedObject += (go) => _placedObject = true;
 
         GetManagers();
         _uxOrderedQueue = new Queue<UxHandle>();
