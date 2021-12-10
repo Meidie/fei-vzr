@@ -79,7 +79,7 @@ Material:
     - _UV_CHANNEL: 0
     - _ZWrite: 1
     m_Colors:
-    - _CamoBlackTint: {r: 0.57111955, g: 1, b: 0.82081497, a: 1}
+    - _CamoBlackTint: {r: 1, g: 1, b: 1, a: 1}
     - _CamoBlueTint: {r: 0.33999997, g: 0.22999996, b: 0.09999997, a: 1}
     - _CamoGreenTint: {r: 0.75, g: 0.6399999, b: 0.30999997, a: 1}
     - _CamoRedTint: {r: 0, g: 0, b: 0, a: 1}

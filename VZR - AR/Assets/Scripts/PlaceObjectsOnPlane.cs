@@ -37,45 +37,53 @@ public class PlaceObjectsOnPlane : MonoBehaviour
         {
             var touch = Input.GetTouch(0);
             _touchPosition = touch.position;
- 
-            switch (touch.phase)
-            {
-                case TouchPhase.Began:
-                {
-                    var ray = arCamera.ScreenPointToRay(touch.position);
 
-                    if (Physics.Raycast(ray, out var hitObject))
+            if (!_touchPosition.IsPointerOverUIObject())
+            {
+                switch (touch.phase)
+                {
+                    case TouchPhase.Began:
                     {
-                        if (hitObject.transform.gameObject.CompareTag("car"))
+                        var ray = arCamera.ScreenPointToRay(touch.position);
+
+                        if (Physics.Raycast(ray, out var hitObject))
                         {
-                            _onTouchHold = true;
+                            if (hitObject.transform.gameObject.CompareTag("car"))
+                            {
+                                _onTouchHold = true;
+                            }
                         }
+
+                        break;
                     }
-
-                    break;
+                    case TouchPhase.Ended:
+                        _onTouchHold = false;
+                        break;
                 }
-                case TouchPhase.Ended:
-                    _onTouchHold = false;
-                    break;
-            }
-            
-            if (_raycastManager.Raycast(_touchPosition, Hits, TrackableType.PlaneWithinPolygon))
-            {
-                var hitPose = Hits[0].pose;
 
-                if (spawnedObject == null)
+                if (_raycastManager.Raycast(_touchPosition, Hits, TrackableType.PlaneWithinPolygon))
                 {
-                    spawnedObject = Instantiate(placementPrefab, hitPose.position, hitPose.rotation);
-                    ONPlacedObject?.Invoke(spawnedObject);
-                }
-                else
-                {
-                    if (_onTouchHold)
+                    var hitPose = Hits[0].pose;
+
+                    if (spawnedObject == null)
                     {
-                        spawnedObject.transform.SetPositionAndRotation(hitPose.position, hitPose.rotation);
+                        spawnedObject = Instantiate(placementPrefab, hitPose.position, hitPose.rotation);
+                        ONPlacedObject?.Invoke(spawnedObject);
+                    }
+                    else
+                    {
+                        if (_onTouchHold)
+                        {
+                            spawnedObject.transform.SetPositionAndRotation(hitPose.position, hitPose.rotation);
+                        }
                     }
                 }
             }
         }
+    }
+
+    public static void Test(GameObject go)
+    {
+        ONPlacedObject?.Invoke(go);
     }
 }

@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - car
+  - left_door
   layers:
   - Default
   - TransparentFX
