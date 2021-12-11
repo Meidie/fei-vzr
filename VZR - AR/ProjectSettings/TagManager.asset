@@ -6,6 +6,11 @@ TagManager:
   tags:
   - car
   - left_door
+  - bonet
+  - roof
+  - wheels
+  - exhaust
+  - lights
   layers:
   - Default
   - TransparentFX

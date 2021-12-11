@@ -55,7 +55,8 @@ public class WorldPosition : MonoBehaviour
 
             var dist = Vector3.Distance(arCamera.transform.position, position);
             var angle = Vector3.Angle(arCamera.transform.forward, _targetTransforms.forward);
-            if (dist > minShowDistance && dist < maxShowDistance && (angle > minShowAngle || angle < maxShowAngle))
+            Debug.Log(angle);
+            if (dist > minShowDistance && dist < maxShowDistance && (angle >= minShowAngle && angle <= maxShowAngle))
             {
                 _buttonImage.enabled = true;
             }
