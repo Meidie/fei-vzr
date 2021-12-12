@@ -1,64 +1,37 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 
 public class DisableTrackedVisuals : MonoBehaviour
 {
-    [SerializeField] [Tooltip("Disables spawned feature points and the ARPointCloudManager")]
-    private bool disableFeaturePoints;
-
-    public bool DisableFeaturePoints
-    {
-        get => disableFeaturePoints;
-        set => disableFeaturePoints = value;
-    }
-
-    [SerializeField] [Tooltip("Disables spawned planes and ARPlaneManager")]
-    private bool disablePlaneRendering;
-
-    public bool DisablePlaneRendering
-    {
-        get => disablePlaneRendering;
-        set => disablePlaneRendering = value;
-    }
-
     [SerializeField] private ARPointCloudManager pointCloudManager;
-
-    public ARPointCloudManager PointCloudManager
-    {
-        get => pointCloudManager;
-        set => pointCloudManager = value;
-    }
-
     [SerializeField] private ARPlaneManager planeManager;
-
-    public ARPlaneManager PlaneManager
+    [SerializeField] private Sprite activeIcon;
+    [SerializeField] private Sprite disabledIcon;
+    private bool _areVisualsActive = true;
+    public void DisableVisuals()
     {
-        get => planeManager;
-        set => planeManager = value;
-    }
-
-    private void OnEnable()
-    {
-        PlaceObjectsOnPlane.ONPlacedObject += ONPlacedObject;
-    }
-
-    private void OnDisable()
-    {
-        PlaceObjectsOnPlane.ONPlacedObject -= ONPlacedObject;
-    }
-
-    private void ONPlacedObject(GameObject go)
-    {
-        if (disableFeaturePoints)
+        if (_areVisualsActive)
         {
             pointCloudManager.SetTrackablesActive(false);
             pointCloudManager.enabled = false;
-        }
-
-        if (disablePlaneRendering)
-        {
+            
             planeManager.SetTrackablesActive(false);
             planeManager.enabled = false;
+
+            _areVisualsActive = false;
+            gameObject.GetComponent<Image>().sprite = activeIcon;
+        }
+        else
+        {
+            pointCloudManager.SetTrackablesActive(true);
+            pointCloudManager.enabled = true;
+            
+            planeManager.SetTrackablesActive(true);
+            planeManager.enabled = true;
+            
+            _areVisualsActive = true;
+            gameObject.GetComponent<Image>().sprite = disabledIcon;
         }
     }
 }

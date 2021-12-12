@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 8080161433541251769}
   m_Layer: 0
   m_Name: SportCar13_MainLightLeft
-  m_TagString: Untagged
+  m_TagString: light_mesh
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -415,7 +415,7 @@ GameObject:
   - component: {fileID: 7800332431237079606}
   m_Layer: 0
   m_Name: SportCar13_PaintLeftRight
-  m_TagString: Untagged
+  m_TagString: front_light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -511,7 +511,7 @@ GameObject:
   - component: {fileID: 6040770334919881802}
   m_Layer: 0
   m_Name: SportCar13_MainLightRight
-  m_TagString: Untagged
+  m_TagString: light_mesh
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1339,7 +1339,7 @@ GameObject:
   - component: {fileID: 7220155227054189937}
   m_Layer: 0
   m_Name: SportCar13_PaintLightLeft
-  m_TagString: Untagged
+  m_TagString: front_light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1467,7 +1467,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4650602077822881134}
-  m_LocalRotation: {x: -0.000000022351744, y: 9.61022e-10, z: -0.0000000010440804, w: 1}
+  m_LocalRotation: {x: -0.000000022373941, y: 9.619764e-10, z: -0.0000000010451172, w: 1}
   m_LocalPosition: {x: -0, y: 0.00000015258789, z: -0.00000015258789}
   m_LocalScale: {x: 1.0000001, y: 1, z: 0.99999994}
   m_Children: []
@@ -1774,7 +1774,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6646179560983098498
 Transform:
   m_ObjectHideFlags: 0
@@ -1804,7 +1804,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5260534588195658855}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1965,7 +1965,7 @@ GameObject:
   - component: {fileID: 6870968448047350605}
   m_Layer: 0
   m_Name: SportCar13_RearSideLight
-  m_TagString: Untagged
+  m_TagString: light_mesh
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

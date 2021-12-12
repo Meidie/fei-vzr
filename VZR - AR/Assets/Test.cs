@@ -9,6 +9,6 @@ public class Test : MonoBehaviour
 
     public void Click()
     {
-       PlaceObjectsOnPlane.Test(go);
+        PlaceObjectsOnPlane.Test(go);
     }
 }

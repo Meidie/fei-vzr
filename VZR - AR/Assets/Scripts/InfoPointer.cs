@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WorldPosition : MonoBehaviour
+public class InfoPointer : MonoBehaviour
 {
     [SerializeField] private Camera arCamera;
     [SerializeField] private string partTag;
+    [SerializeField] private GameObject detailPanel;
     
     [SerializeField]
     private float minShowAngle;
@@ -22,27 +23,33 @@ public class WorldPosition : MonoBehaviour
     private Transform _targetTransforms;
     private RectTransform _buttonRectTransform;
     private Image _buttonImage;
+    private Button _button;
+    private bool _isDetailVisible;
 
     private void Awake()
     {
         _buttonRectTransform = GetComponent<RectTransform>();
         _buttonImage = GetComponent<Image>();
+        _button = GetComponent<Button>();
     }
-
-    private void OnEnable()
+    
+    public void SetInfoPositions()
     {
-        PlaceObjectsOnPlane.ONPlacedObject += SetInfoPositions;
-    }
-
-    private void OnDisable()
-    {
-        PlaceObjectsOnPlane.ONPlacedObject -= SetInfoPositions;
-    }
-
-    private void SetInfoPositions(GameObject obj)
-    {
-        _car = obj;
         _targetTransforms = GameObject.FindGameObjectWithTag(partTag).transform;
+    }
+
+    public void ShowDetail()
+    {
+        if (!_isDetailVisible)
+        {
+            detailPanel.SetActive(true);
+            _isDetailVisible = true;
+        }
+        else
+        {
+            detailPanel.SetActive(false);
+            _isDetailVisible = false;
+        }
     }
 
     private void Update()
@@ -55,14 +62,26 @@ public class WorldPosition : MonoBehaviour
 
             var dist = Vector3.Distance(arCamera.transform.position, position);
             var angle = Vector3.Angle(arCamera.transform.forward, _targetTransforms.forward);
-            Debug.Log(angle);
-            if (dist > minShowDistance && dist < maxShowDistance && (angle >= minShowAngle && angle <= maxShowAngle))
+            //Debug.Log(angle);
+            if (dist > minShowDistance && dist < maxShowDistance && angle >= minShowAngle && angle <= maxShowAngle)
             {
                 _buttonImage.enabled = true;
+                _button.enabled = true;
+                
+                if (detailPanel != null && _isDetailVisible)
+                {
+                    detailPanel.SetActive(true);
+                }
             }
             else
             {
                 _buttonImage.enabled = false;
+                _button.enabled = false;
+
+                if (detailPanel != null)
+                {
+                    detailPanel.SetActive(false);
+                }
             }
         }
     }

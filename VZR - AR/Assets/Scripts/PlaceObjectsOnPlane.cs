@@ -11,7 +11,6 @@ public class PlaceObjectsOnPlane : MonoBehaviour
     public static event Action<GameObject> ONPlacedObject;
 
     [SerializeField] private GameObject placementPrefab;
-
     public GameObject PlacementPrefab
     {
         get => placementPrefab;
@@ -74,7 +73,7 @@ public class PlaceObjectsOnPlane : MonoBehaviour
                     {
                         if (_onTouchHold)
                         {
-                            spawnedObject.transform.SetPositionAndRotation(hitPose.position, hitPose.rotation);
+                            spawnedObject.transform.SetPositionAndRotation(hitPose.position, spawnedObject.transform.rotation);
                         }
                     }
                 }

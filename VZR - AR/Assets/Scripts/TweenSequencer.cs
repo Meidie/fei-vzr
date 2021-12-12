@@ -55,4 +55,14 @@ public class TweenSequencer : MonoBehaviour
             _sequenceTriggered = !_sequenceTriggered;
         }
     }
+    
+    public void Show(TweenCallback tc)
+    {
+        if (!_sequenceTriggered)
+        {
+            _sequence.OnComplete(tc);
+            _sequence.PlayForward();
+            _sequenceTriggered = !_sequenceTriggered;
+        }
+    }
 }

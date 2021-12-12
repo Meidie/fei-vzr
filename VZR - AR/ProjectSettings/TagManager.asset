@@ -11,6 +11,8 @@ TagManager:
   - wheels
   - exhaust
   - lights
+  - front_light
+  - light_mesh
   layers:
   - Default
   - TransparentFX
