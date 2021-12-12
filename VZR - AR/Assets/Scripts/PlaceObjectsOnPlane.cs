@@ -80,9 +80,4 @@ public class PlaceObjectsOnPlane : MonoBehaviour
             }
         }
     }
-
-    public static void Test(GameObject go)
-    {
-        ONPlacedObject?.Invoke(go);
-    }
 }

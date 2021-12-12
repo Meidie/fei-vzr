@@ -52,6 +52,9 @@ public class InfoPointer : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Nastavovanie pozicie UI informačného tlačidla podľa umiestnenia modelu v 3D priestore
+    /// </summary>
     private void Update()
     {
         if (_targetTransforms != null)
